@@ -8,3 +8,5 @@ outbox.jsonl
 outbox/
 load_test_results.json
 .phoenix_data/
+.DS_Store
+screenshots/Captura*
