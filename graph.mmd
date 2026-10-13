@@ -1,0 +1,31 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	researcher(researcher)
+	analyst(analyst)
+	executor(executor)
+	supervisor(supervisor)
+	validator(validator)
+	synthesizer(synthesizer)
+	hitl_gate(hitl_gate)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> supervisor;
+	analyst --> supervisor;
+	executor --> supervisor;
+	hitl_gate -.-> executor;
+	hitl_gate -.-> supervisor;
+	researcher --> supervisor;
+	supervisor -.-> analyst;
+	supervisor -.-> hitl_gate;
+	supervisor -.-> researcher;
+	supervisor -.-> validator;
+	validator -.-> supervisor;
+	validator -.-> synthesizer;
+	synthesizer --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

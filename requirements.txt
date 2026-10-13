@@ -1,0 +1,33 @@
+# --- Núcleo (M6) ---
+langgraph>=1.0
+langchain-core>=1.0
+pydantic>=2
+python-dotenv
+
+# --- API (PE7) ---
+fastapi>=0.115
+uvicorn[standard]>=0.30
+redis>=5
+# Checkpointer de LangGraph en Redis. REQUIERE Redis Stack (módulos RedisJSON + RediSearch), ver docker-compose.yml
+langgraph-checkpoint-redis>=0.1
+
+# --- Observabilidad (PE7): Arize Phoenix vía OpenInference ---
+arize-phoenix-otel
+openinference-instrumentation-langchain
+# (LangSmith no necesita paquete extra: viene con langchain-core; solo variables de entorno)
+
+# --- Proveedor de LLM: instalá SOLO el que vayas a usar (ver app/llm.py) ---
+langchain-openai            # LLM_PROVIDER=openai (recomendado para ver costos en Phoenix)
+langchain-groq              # LLM_PROVIDER=groq
+langchain-google-genai      # LLM_PROVIDER=gemini
+# langchain-anthropic       # LLM_PROVIDER=anthropic
+
+# --- Búsqueda web opcional (si no hay TAVILY_API_KEY se usa la base local) ---
+# langchain-community
+# tavily-python
+
+# --- Scripts y tests ---
+httpx
+pytest
+pytest-asyncio
+fakeredis
